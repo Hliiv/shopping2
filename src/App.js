@@ -2,15 +2,16 @@ import './App.css';
 import Product from './Product';
 import NewProduct from './NewProduct';
 import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   const [items, setItems] = useState([])
 
-  const addProduct = ({description, unit, amount}) => {
-    console.log('About to add ' + description)
+  const addProduct = ({ description, unit, amount }) => {
     const newProduct = {
       description,
-      unit, 
+      unit,
       amount,
       isInBasket: false
     }
@@ -26,7 +27,7 @@ function App() {
 
     //Following filter functionis the same with:
     // (el) => { return  el !== null }
-    let newItems = items.filter(el => el !== null )
+    let newItems = items.filter(el => el !== null)
     setItems(newItems)
   }
 
@@ -34,7 +35,7 @@ function App() {
     console.log('toggle checked for row ' + id)
     const newItems = items.map((el, index) => {
       if (index === id) {
-        return {...el, isInBasket: !el.isInBasket}
+        return { ...el, isInBasket: !el.isInBasket }
       } else {
         return el
       }
@@ -45,18 +46,20 @@ function App() {
   return (
     <div className="container">
       <h1>My Shopping List</h1>
-      <NewProduct addProduct = {addProduct} />
-        {
-          items.map((item, index) => {
-            return <Product 
-                      key={index} 
-                      product={item} 
-                      id={index} 
-                      deleteProduct={deleteProduct}
-                      toggleChecked={toggleChecked}
-                    />
-          })
-        }
+
+      <NewProduct addProduct={addProduct}
+      />
+      {
+        items.map((item, index) => {
+          return <Product
+            key={index}
+            product={item}
+            id={index}
+            deleteProduct={deleteProduct}
+            toggleChecked={toggleChecked}
+          
+          />
+        })}
     </div>
   );
 }

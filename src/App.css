@@ -11,6 +11,16 @@
   color: black;
   background-color: lightgray;
   text-decoration: line-through;}
+ 
+
+.product-box {
+  display: flex;
+  align-items: center;
+}
+
+.product-name {
+  margin-right: 10px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
