@@ -1,13 +1,21 @@
-import Form from 'react-bootstrap/Form';
+import React from 'react';
+import Dropdown from 'react-bootstrap/Dropdown';
+;
 
-function SelectBasicExample() {
+function SelectBasicExample({ value, onChange }) {
+ 
   return (
-    <Form.Select aria-label="Multiple select example">
-      <option>Open this select menu</option>
-      <option value="1">Bread</option>
-      <option value="2">Butter</option>
-      <option value="3">Apples</option>
-    </Form.Select>
+    <Dropdown onSelect={onChange}>
+      <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+        {value || 'Select an option'}
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item eventKey="Bread">Bread</Dropdown.Item>
+        <Dropdown.Item eventKey="Butter">Butter</Dropdown.Item>
+        <Dropdown.Item eventKey="Apples">Apples</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
   );
 }
 

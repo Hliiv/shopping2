@@ -58,6 +58,7 @@ function App() {
             deleteProduct={deleteProduct}
             toggleChecked={toggleChecked}
           
+
           />
         })}
     </div>

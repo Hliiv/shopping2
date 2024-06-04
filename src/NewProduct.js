@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import SelectBasicExample from './SelectBasicExample';
 
@@ -27,38 +26,45 @@ function NewProduct({ addProduct }) {
   const handleSelectChange = (event) => {
     setSelectedValue(event.target.value);
   };
+
   return (
-  <div className="row">
-  <div className="col-12 col-sm-6">
-    <div className="product-box" style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <div className="row">
+      <div className="col-6">
+        <div className="product-box">
+          <input
+          
+            className="product-name"
+            placeholder="Product name"
+            value={description}
+            onChange={(event) => setDescription(event.target.value)}
+          />
+          <div className="dropdown-container">
+            <SelectBasicExample
+              value={selectedValue}
+              onChange={handleSelectChange}
+            />
+          </div>
+        </div>
+      </div>
       <input
-        className="product-name"
-        placeholder="Product name"
-        value={description}
-        onChange={(event) => setDescription(event.target.value)}
+        className="col-2"
+        placeholder="Unit"
+        value={unit}
+        onChange={(event) => setUnit(event.target.value)}
       />
-      <SelectBasicExample
-        value={selectedValue}
-        onChange={handleSelectChange}
+      <input
+        className="col-2"
+        placeholder="Amount"
+        value={amount}
+        onChange={AmountChange}
       />
+      <button className='col-2' onClick={submitValues}>
+        Add
+      </button>
     </div>
-  </div>
-  <input
-    className="col-2"
-    placeholder="Unit"
-    value={unit}
-    onChange={(event) => setUnit(event.target.value)}
-  />
-  <input
-    className="col-2"
-    placeholder="Amount"
-    value={amount}
-    onChange={AmountChange}
-  />
-  <button className='col-2' onClick={submitValues}>
-    Add
-  </button>
-  </div>
   )
 }
+
 export default NewProduct
+
+

@@ -20,7 +20,7 @@ function Product({product, id, deleteProduct, toggleChecked}) {
                 />
 
             </div>
-            <div className="col-12 col-sm-6">
+            <div className="col-12">
                 {product.description}
             </div>
             <div className="col-2">
